@@ -1,0 +1,54 @@
+{
+  "name": "sedona-27",
+  "private": true,
+  "description": "Личный проект «Кэт энерджи» от HTML Academy",
+  "devDependencies": {
+    "@htmlacademy/editorconfig-cli": "1.0.x",
+    "autoprefixer": "10.4.x",
+    "browser-sync": "2.27.x",
+    "del": "6.0.x",
+    "gh-pages": "4.0.x",
+    "gulp": "4.0.x",
+    "gulp-dart-sass": "1.0.x",
+    "gulp-htmlmin": "5.0.x",
+    "gulp-if": "3.0.x",
+    "gulp-libsquoosh": "1.0.x",
+    "gulp-plumber": "1.2.x",
+    "gulp-postcss": "9.0.x",
+    "gulp-rename": "2.0.x",
+    "gulp-stacksvg": "1.1.x",
+    "gulp-svgmin": "4.1.x",
+    "gulp-terser": "2.1.x",
+    "postcss": "8.3.x",
+    "postcss-csso": "5.0.x",
+    "stylelint": "13.13.x",
+    "stylelint-config-htmlacademy": "0.1.x"
+  },
+  "scripts": {
+    "editorconfig": "editorconfig-cli",
+    "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
+    "lint": "npm run editorconfig && npm run stylelint",
+    "build": "gulp build",
+    "deploy": "gulp build && gh-pages -d build",
+    "start": "gulp"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all",
+    "not < 0.25%"
+  ],
+  "editorconfig-cli": [
+    "*.json",
+    "*.js",
+    "source/*.html",
+    "source/js/**/*.js",
+    "source/img/**/*.svg",
+    "source/sass/**/*.scss"
+  ],
+  "engines": {
+    "node": "^16"
+  },
+  "type": "module"
+}

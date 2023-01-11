@@ -1,0 +1,298 @@
+{
+  "projectName": "Cat Energy",
+  "pages": [
+    {
+      "path": "index.html",
+      "name": "главная"
+    },
+    {
+      "path": "catalog.html",
+      "name": "каталог продукции"
+    },
+    {
+      "path": "form.html",
+      "name": "подбор программы"
+    }
+  ],
+  "viewports": {
+    "desktop": 1280,
+    "tablet": 768,
+    "mobile": 320
+  },
+  "maxdppx": 2,
+  "images": {
+    "promo": {
+      "ext": "png",
+      "sizes": [
+        {
+          "viewport": "desktop",
+          "width": 552,
+          "height": 499
+        },
+        {
+          "viewport": "tablet",
+          "width": 709,
+          "height": 609
+        },
+        {
+          "viewport": "mobile",
+          "width": 280,
+          "height": 270
+        }
+      ]
+    },
+    "example-before": {
+      "ext": "png",
+      "sizes": [
+        {
+          "viewport": "desktop",
+          "width": 560,
+          "height": 512
+        },
+        {
+          "viewport": "tablet",
+          "width": 560,
+          "height": 512
+        },
+        {
+          "viewport": "mobile",
+          "width": 280,
+          "height": 256
+        }
+      ]
+    },
+    "example-after": {
+      "ext": "png",
+      "sizes": [
+        {
+          "viewport": "desktop",
+          "width": 560,
+          "height": 512
+        },
+        {
+          "viewport": "tablet",
+          "width": 560,
+          "height": 512
+        },
+        {
+          "viewport": "mobile",
+          "width": 280,
+          "height": 256
+        }
+      ]
+    },
+    "chicken500": {
+      "ext": "png",
+      "sizes": [
+        {
+          "viewport": "desktop",
+          "width": 161,
+          "height": 172
+        },
+        {
+          "viewport": "tablet",
+          "width": 161,
+          "height": 172
+        },
+        {
+          "viewport": "mobile",
+          "width": 68,
+          "height": 86
+        }
+      ]
+    },
+    "chicken1000": {
+      "ext": "png",
+      "sizes": [
+        {
+          "viewport": "desktop",
+          "width": 172,
+          "height": 196
+        },
+        {
+          "viewport": "tablet",
+          "width": 168,
+          "height": 206
+        },
+        {
+          "viewport": "mobile",
+          "width": 84,
+          "height": 100
+        }
+      ]
+    },
+    "fish500": {
+      "ext": "png",
+      "sizes": [
+        {
+          "viewport": "desktop",
+          "width": 163,
+          "height": 174
+        },
+        {
+          "viewport": "tablet",
+          "width": 163,
+          "height": 174
+        },
+        {
+          "viewport": "mobile",
+          "width": 68,
+          "height": 78
+        }
+      ]
+    },
+    "fish1000": {
+      "ext": "png",
+      "sizes": [
+        {
+          "viewport": "desktop",
+          "width": 172,
+          "height": 196
+        },
+        {
+          "viewport": "tablet",
+          "width": 168,
+          "height": 200
+        },
+        {
+          "viewport": "mobile",
+          "width": 84,
+          "height": 100
+        }
+      ]
+    },
+    "buckwheat500": {
+      "ext": "png",
+      "sizes": [
+        {
+          "viewport": "desktop",
+          "width": 161,
+          "height": 171
+        },
+        {
+          "viewport": "tablet",
+          "width": 161,
+          "height": 171
+        },
+        {
+          "viewport": "mobile",
+          "width": 68,
+          "height": 78
+        }
+      ]
+    },
+    "buckwheat1000": {
+      "ext": "png",
+      "sizes": [
+        {
+          "viewport": "desktop",
+          "width": 161,
+          "height": 172
+        },
+        {
+          "viewport": "tablet",
+          "width": 168,
+          "height": 200
+        },
+        {
+          "viewport": "mobile",
+          "width": 172,
+          "height": 196
+        }
+      ]
+    },
+    "rice500": {
+      "ext": "png",
+      "sizes": [
+        {
+          "viewport": "desktop",
+          "width": 163,
+          "height": 174
+        },
+        {
+          "viewport": "tablet",
+          "width": 163,
+          "height": 174
+        },
+        {
+          "viewport": "mobile",
+          "width": 72,
+          "height": 84
+        }
+      ]
+    }
+  },
+  "products": [
+    {
+      "title": "Cat Energy Pro",
+      "weight": 500,
+      "flawor": "Курица",
+      "image": "chicken500",
+      "price": 700
+    },
+    {
+      "title": "Cat Energy Pro",
+      "weight": 1000,
+      "flawor": "Курица",
+      "image": "chicken1000",
+      "price": 1000
+    },
+    {
+      "title": "Cat Energy Pro",
+      "weight": 500,
+      "flawor": "Рыба",
+      "image": "fish500",
+      "price": 700
+    },
+    {
+      "title": "Cat Energy Pro",
+      "weight": 1000,
+      "flawor": "Рыба",
+      "image": "fish1000",
+      "price": 1000
+    },
+    {
+      "title": "Cat Energy Slim",
+      "weight": 500,
+      "flawor": "Гречка",
+      "image": "buckwheat500",
+      "price": 400
+    },
+    {
+      "title": "Cat Energy Slim",
+      "weight": 1000,
+      "flawor": "Гречка",
+      "image": "buckwheat1000",
+      "price": 700
+    },
+    {
+      "title": "Cat Energy Slim",
+      "weight": 500,
+      "flawor": "Рис",
+      "image": "rice500",
+      "price": 500
+    }
+  ],
+  "additionalProducts": [
+    {
+      "name": "Сахарозаменитель",
+      "description": "1 упаковка (100 г)",
+      "price": 200
+    },
+    {
+      "name": "Питьевая вода",
+      "description": "5 литров",
+      "price": 50
+    },
+    {
+      "name": "молоко",
+      "description": "1 литр",
+      "price": 100
+    },
+    {
+      "name": "витамины",
+      "description": "1 упаковка (30 г)",
+      "price": 300
+    }
+  ]
+}

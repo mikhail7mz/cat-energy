@@ -1,0 +1,19 @@
+<header class="header">
+  <a class="logo" href="index.html" {% if permalink == "index.html" %}aria-current="page"{% endif %}>
+    <img class="logo__image" src="#" width="101" height="18" alt="Логотип сайта.">
+  </a>
+  <nav class="header__navigation">
+    <button class="header__navigation" type="button">
+      <span class="visually-hidden">Кнопка открытия меню.</span>
+    </button>
+    <ul class="header__menu">
+      {% for page in pages %}
+        <li class="header__menu-item {{ (permalink == page.path) ? 'header__menu-item--current' }}">
+          <a class="header__menu-link"
+            href="{{ page.path }}"
+            {% if permalink == page.name %}aria-current="page"{% endif %}>{{page.name}}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

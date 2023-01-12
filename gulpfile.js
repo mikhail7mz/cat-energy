@@ -1,9 +1,15 @@
 import gulp from 'gulp';
 import gulpif from 'gulp-if';
+import data from './source/data.json' assert {type: 'json'}
 import browser from 'browser-sync';
 import htmlmin from 'gulp-htmlmin';
+import htmlPrettify from 'gulp-html-prettify';
 import plumber from 'gulp-plumber';
-import sass from 'gulp-dart-sass';
+import twig from 'gulp-twig';
+import { htmlValidator } from 'gulp-w3c-html-validator';
+import bemlinter from 'gulp-html-bemlinter';
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
 import postcss from 'gulp-postcss';
 import csso from 'postcss-csso';
 import autoprefixer from 'autoprefixer';
@@ -14,22 +20,53 @@ import svgo from 'gulp-svgmin';
 import del from 'del';
 import { stacksvg } from 'gulp-stacksvg';
 
-let isDevelopment = true;
+data.isDevelopment = true;
+const sass = gulpSass(dartSass);
 
 // Markup
 
-const processMarkup = () => {
-  return gulp.src('source/*.html')
-    .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest('build'));
+export const processMarkup = () => {
+  return gulp.src('./source/*.html')
+    .pipe(twig({
+      data: data
+    }))
+    .pipe(gulpif(
+      data.isDevelopment,
+      htmlPrettify({indent_char: ' ', indent_size: 2}),
+      htmlmin({ collapseWhitespace: true })))
+    .pipe(gulp.dest('./build'));
+}
+
+export const validateMarkup = () => {
+	return gulp.src('build/*.html')
+		.pipe(htmlValidator.analyzer())
+		.pipe(htmlValidator.reporter({ throwErrors: true }));
+}
+
+export const lintBem = () => {
+	return gulp.src('build/*.html')
+		.pipe(bemlinter());
 }
 
 // Styles
 
-const processStyles = () => {
-  return gulp.src('source/sass/style.scss', { sourcemaps: true })
+export const processStyles = () => {
+  const sassOptions = {
+		functions: {
+			'getbreakpoint($bp)': (bp) => new dartSass.types.Number(data.viewports[bp.getValue()]),
+			'getext($name)': (name) => new dartSass.types.String(data.images[name.getValue()].ext),
+			'getmaxdppx($name)': (name) => new dartSass.types.Number(data.images[name.getValue()].maxdppx),
+			'getviewports($name)': function (name) {
+				let vps = data.images[name.getValue()].sizes.map((size) => size.viewport);
+				let viewports = new dartSass.types.List(vps.length);
+				vps.reverse().forEach((vp, i) => { viewports.setValue(i, new dartSass.types.String(vp)) });
+				return viewports;
+			}
+		}
+	}
+  return gulp.src('source/sass/style.scss', { sourcemaps: data.isDevelopment })
     .pipe(plumber())
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(postcss([
       autoprefixer(),
       csso()
@@ -51,7 +88,7 @@ const processScripts = () => {
 
 const processImages = () => {
   return gulp.src('source/img/**/*.{jpg,png}')
-    .pipe(gulpif(!isDevelopment, squoosh()))
+    .pipe(gulpif(!data.isDevelopment, squoosh()))
     .pipe(gulp.dest('build/img'));
 }
 

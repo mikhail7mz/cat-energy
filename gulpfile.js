@@ -79,7 +79,7 @@ const processStyles = () => {
 // Scripts
 
 const processScripts = () => {
-  return gulp.src('source/js/*.js')
+  return gulp.src('source/js/**/*.js')
     .pipe(terser())
     .pipe(gulp.dest('build/js'));
 }

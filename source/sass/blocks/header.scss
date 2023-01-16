@@ -1,0 +1,142 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 17px;
+  row-gap: 17px;
+
+  @media #{$not-mobile} {
+    padding-top: 1px;
+  }
+
+  @media #{$desktop-only} {
+    padding-top: 53px;
+  }
+}
+
+.header__menu-button {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-top: 9px;
+  padding: 0;
+  border: none;
+  background: none;
+  background-image: url("../img/stack.svg#icons_menu-open");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 24px 18px;
+
+  @media #{$not-mobile} {
+    display: none;
+  }
+}
+
+.header__menu-button--close {
+  background-image: url("../img/stack.svg#icons_menu-close");
+  background-size: 18px 18px;
+}
+
+.header__menu-list {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 100%;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  background-color: var(--background-primary);
+
+  @media #{$not-mobile} {
+    position: static;
+    z-index: auto;
+    display: flex;
+    flex-direction: row;
+    column-gap: 36px;
+    padding-top: 10px;
+  }
+}
+
+.header__menu-list--opened {
+  display: flex;
+}
+
+.header__menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px 16px;
+  border-top: 1px solid #e6e6e6;
+  font: 500 20px/20px var(--font-secondary);
+  color: #000000;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+
+  @media #{$not-mobile} {
+    border-top: none;
+    padding: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  @media #{$desktop-only} {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  &:focus,
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.header__menu-link-text {
+  padding: 8px 0 6px;
+  border-bottom: 2px solid transparent;
+
+  @media #{$not-mobile} {
+    padding: 8px 0;
+  }
+
+  @media #{$desktop-only} {
+    padding: 6px 0;
+  }
+
+  .header__menu-item--current & {
+    border-bottom-color: #68b738;
+  }
+}
+
+.header--no-js {
+  @media #{$mobile-only} {
+    padding-left: 0;
+    padding-right: 0;
+
+    .header__logo {
+      padding-left: 20px;
+      padding-right: 64px;
+    }
+
+    .header__menu-list {
+      position: static;
+      display: flex;
+      width: 100vw;
+    }
+
+    .header__menu-button {
+      display: none;
+    }
+  }
+}

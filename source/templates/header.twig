@@ -1,10 +1,14 @@
-<header class="header page__container">
-  <a class="logo" href="index.html" {% if permalink == "index.html" %}aria-current="page"{% endif %} aria-label="Логотип сайта. Переход на главную.">
-    <img class="logo__image" src="img/stack.svg#icons_logo-image" width="33" height="38" alt="Графический логотип сайта.">
+<header class="header header--no-js page__container">
+  <a class="header__logo logo" href="index.html" {% if permalink == "index.html" %}aria-current="page"{% endif %} aria-label="Логотип сайта. Переход на главную.">
+    <svg class="logo__image" width="33" height="38" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <use class="logo__icon logo__icon--mobile" xlink:href="img/stack.svg#icons_logo-mobile"/>
+      <use class="logo__icon logo__icon--tablet" xlink:href="img/stack.svg#icons_logo-tablet"/>
+      <use class="logo__icon logo__icon--desktop" xlink:href="img/stack.svg#icons_logo-desktop"/>
+    </svg>
     <img class="logo__text" src="img/stack.svg#icons_logo-text" width="101" height="18" alt="Текстовый логотип сайта.">
   </a>
-  <nav class="header__navigation">
-    <button class="header__menu-button header__menu-button--close" type="button">
+  <nav class="header__menu">
+    <button class="header__menu-button" type="button">
       <span class="visually-hidden">Кнопка открытия меню.</span>
     </button>
     <ul class="header__menu-list">
@@ -12,7 +16,9 @@
         <li class="header__menu-item {{ (permalink == page.path) ? 'header__menu-item--current' }}">
           <a class="header__menu-link"
             href="{{ page.path }}"
-            {% if permalink == page.name %}aria-current="page"{% endif %}>{{page.name}}</a>
+            {% if permalink == page.name %}aria-current="page"{% endif %}>
+            <span class="header__menu-link-text">{{page.name}}</span>
+          </a>
         </li>
       {% endfor %}
     </ul>

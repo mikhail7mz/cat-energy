@@ -1,12 +1,13 @@
-<header class="header">
-  <a class="logo" href="index.html" {% if permalink == "index.html" %}aria-current="page"{% endif %}>
-    <img class="logo__image" src="#" width="101" height="18" alt="Логотип сайта.">
+<header class="header page__container">
+  <a class="logo" href="index.html" {% if permalink == "index.html" %}aria-current="page"{% endif %} aria-label="Логотип сайта. Переход на главную.">
+    <img class="logo__image" src="img/stack.svg#icons_logo-image" width="33" height="38" alt="Графический логотип сайта.">
+    <img class="logo__text" src="img/stack.svg#icons_logo-text" width="101" height="18" alt="Текстовый логотип сайта.">
   </a>
   <nav class="header__navigation">
-    <button class="header__navigation" type="button">
+    <button class="header__menu-button header__menu-button--close" type="button">
       <span class="visually-hidden">Кнопка открытия меню.</span>
     </button>
-    <ul class="header__menu">
+    <ul class="header__menu-list">
       {% for page in pages %}
         <li class="header__menu-item {{ (permalink == page.path) ? 'header__menu-item--current' }}">
           <a class="header__menu-link"

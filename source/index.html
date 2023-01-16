@@ -7,7 +7,7 @@
     <section class="promo">
       <h1 class="promo__heading">Функциональное питание для котов</h1>
       <p class="promo__text">Занялся собой? Займись котом!</p>
-      <img class="promo__image" src="#" width="280" height="270" alt="Фото упаковки Функционального питания.">
+      {% include "./templates/picture.twig" with {name: "promo", class: "promo__image", alt: "Упаковка функционального питания."} %}
       <a class="promo__link" href="form.html">подобрать программу</a>
     </section>
     <section class="categories">
@@ -51,9 +51,9 @@
           <dd class="example__results-value">15 000 РУБ.</dd>
         </div>
       </dl>
-      <div class="example__images">
-        {% include "./templates/picture.twig" with {name: example-before, class: "example__images example__images--before", alt: "результат до."} %}
-        {% include "./templates/picture.twig" with {name: example-after, class: "example__images example__images--after", alt: "результат после."} %}
+      <div class="example__pictures">
+        {% include "./templates/picture.twig" with {name: "example-before", class: "example__image example__image--before", alt: "результат до."} %}
+        {% include "./templates/picture.twig" with {name: "example-after", class: "example__image example__image--after", alt: "результат после."} %}
         <button class="example__images-toggle" type="button">
           <span class="visually-hidden">Переключатель до / после.</span>
         </button>

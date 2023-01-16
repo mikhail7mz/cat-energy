@@ -50,7 +50,7 @@ export const lintBem = () => {
 
 // Styles
 
-export const processStyles = () => {
+const processStyles = () => {
   const sassOptions = {
 		functions: {
 			'getbreakpoint($bp)': (bp) => new dartSass.types.Number(data.viewports[bp.getValue()]),
@@ -92,20 +92,24 @@ const processImages = () => {
     .pipe(gulp.dest('build/img'));
 }
 
-const createWebp = () => {
-  return gulp.src('source/img/**/*.{jpg,png}')
-    .pipe(squoosh({
-      webp: {}
-    }))
-    .pipe(gulp.dest('build/img'));
+const createWebp = (done) => {
+	if (!data.isDevelopment) {
+    return gulp.src('source/img/**/*.{jpg,png}')
+      .pipe(squoosh({ webp: {} }))
+      .pipe(gulp.dest('build/img'));
+  } else {
+    done()
+  }
 }
 
-const createAvif = () => {
-  return gulp.src('source/img/**/*.{jpg,png}')
-    .pipe(squoosh({
-      avif: {}
-    }))
-    .pipe(gulp.dest('build/img'));
+const createAvif = (done) => {
+	if (!data.isDevelopment) {
+    return gulp.src('source/img/**/*.{jpg,png}')
+      .pipe(squoosh({ avif: {} }))
+      .pipe(gulp.dest('build/img'));
+  } else {
+    done()
+  }
 }
 
 // SVG
@@ -125,8 +129,8 @@ const createSvgStack = () => {
 
 // Coping assets
 
-const copyAssets = (done) => {
-  gulp.src([
+const copyAssets = () => {
+  return gulp.src([
     'source/fonts/*.{woff,woff2}',
     'source/*.ico',
     'source/manifest.webmanifest'
@@ -134,7 +138,6 @@ const copyAssets = (done) => {
     base: 'source'
   })
     .pipe(gulp.dest('build'));
-  done();
 }
 
 // Remove build
@@ -180,11 +183,11 @@ const serverReload = (done) => {
 
 // Watcher
 
-export const watcher = () => {
+const watcher = () => {
   gulp.watch('source/sass/**/*.scss', gulp.series(processStyles));
   gulp.watch('source/js/**/*.js', gulp.series(processScripts));
-  gulp.watch('source/img/**/*.svg', gulp.series(createSvgStack));
-  gulp.watch('source/*.html', gulp.series(processMarkup, serverReload));
+  gulp.watch('source/img/**/*.svg', gulp.series(createSvgStack, serverReload));
+  gulp.watch(['source/**/*.{html,twig}', 'source/data.json'], gulp.series(processMarkup, serverReload));
 }
 
 // Npm run build

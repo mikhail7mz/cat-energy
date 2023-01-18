@@ -4,11 +4,13 @@
 
 {% block main %}
   <main class="page__main">
-    <section class="promo">
-      <h1 class="promo__heading">Функциональное питание для котов</h1>
-      <p class="promo__text">Занялся собой? Займись котом!</p>
+    <section class="promo page__container">
+      <header class="promo__header">
+        <h1 class="promo__heading heading">Функциональное питание для котов</h1>
+        <p class="promo__text">Занялся собой? Займись котом!</p>
+      </header>
       {% include "./templates/picture.twig" with {name: "promo", class: "promo__image", alt: "Упаковка функционального питания."} %}
-      <a class="promo__link" href="form.html">подобрать программу</a>
+      <a class="promo__link button" href="form.html">подобрать программу</a>
     </section>
     <section class="categories">
       <h2 class="visually-hidden">Программы питания.</h2>

@@ -55,7 +55,7 @@ const processStyles = () => {
 		functions: {
 			'getbreakpoint($bp)': (bp) => new dartSass.types.Number(data.viewports[bp.getValue()]),
 			'getext($name)': (name) => new dartSass.types.String(data.images[name.getValue()].ext),
-			'getmaxdppx($name)': (name) => new dartSass.types.Number(data.images[name.getValue()].maxdppx),
+			'getmaxdppx()': () => new dartSass.types.Number(data.maxdppx),
 			'getviewports($name)': function (name) {
 				let vps = data.images[name.getValue()].sizes.map((size) => size.viewport);
 				let viewports = new dartSass.types.List(vps.length);

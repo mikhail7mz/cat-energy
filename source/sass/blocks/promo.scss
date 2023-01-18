@@ -1,0 +1,107 @@
+.promo {
+  $preimage: linear-gradient(rgb(104 183 56 / 0.85),rgb(104 183 56 / 0.85));
+  $postimage: linear-gradient(to right, #4d4d4d ,#3e3b42);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 27px;
+  @include bg-image("promo-background", $preimage, $postimage);
+  background-position: top center;
+  background-size: 100% 302px, 320px 302px, 100% 302px;
+  background-repeat: no-repeat;
+  font: 14px/14px var(--font-secondary);
+  color: var(--color-light);
+  text-transform: uppercase;
+  text-align: center;
+
+  @media #{$not-mobile} {
+    align-items: start;
+    padding-top: 46px;
+    font-size: 20px;
+    line-height: 20px;
+    color: var(--color-dark);
+    text-align: left;
+  }
+
+  @media #{$tablet-only} {
+    background: none;
+  }
+
+  @media #{$desktop-only} {
+    margin-top: -129px;
+    padding-top: 223px;
+    max-width: 100%;
+    min-height: 696px;
+    background-size: 50% 696px, 1043px 696px, 50% 696px;
+    background-position: top right, top left 50vw, top right;
+    background-clip: border-box;
+  }
+}
+
+.promo__header {
+  @media #{$not-mobile} {
+    padding: 0 calc(var(--page-offset) + 57px);
+    max-width: 640px;
+  }
+
+  @media #{$desktop-only} {
+    max-width: 430px;
+    margin-bottom: 31px;
+    margin-left: calc((100% - 1280px) / 2 + 110px);
+    padding: 0;
+  }
+}
+
+.promo__heading {
+  margin-bottom: 41px;
+  color: inherit;
+  text-transform: none;
+
+  @media #{$mobile-only} {
+    margin-bottom: 25px;
+    line-height: 36px;
+  }
+}
+
+.promo__text:last-of-type {
+  margin-bottom: 29px;
+
+  @media #{$not-mobile} {
+    margin-bottom: 20px;
+  }
+}
+
+.promo__image {
+  margin-bottom: 2px;
+
+  @media #{$not-mobile} {
+    width: 709px;
+  }
+
+  @media #{$desktop-only} {
+    position: absolute;
+    top: 141px;
+    left: calc((100vw - 1280px)/2 + 478px);
+    width: 552px;
+  }
+}
+
+.promo__link {
+  padding: 11px;
+  font-size: 14px;
+  line-height: 18px;
+
+  @media #{$not-mobile} {
+    $translate: 582px;
+    margin: ($translate * -1) 0 $translate calc(var(--page-offset) + 61px);
+    padding: 17px 27px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  @media #{$desktop-only} {
+    margin: 0;
+    margin-left: calc((100% - 1280px) / 2 + 110px);
+  }
+}

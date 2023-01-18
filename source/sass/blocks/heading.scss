@@ -1,0 +1,10 @@
+.heading {
+  margin-top: 0;
+  font: 36px/40px var(--font-secondary);
+  color: var(--color-dark);
+
+  @media #{$not-mobile} {
+    font-size: 60px;
+    line-height: 60px;
+  }
+}

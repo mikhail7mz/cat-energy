@@ -1,4 +1,4 @@
-<header class="header header--no-js page__container">
+<header class="header {% if permalink == 'index.html' %}header--theme-green {% endif %}header--no-js page__container">
   <a class="header__logo logo" href="index.html" {% if permalink == "index.html" %}aria-current="page"{% endif %} aria-label="Логотип сайта. Переход на главную.">
     <svg class="logo__image" width="33" height="38" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
       <use class="logo__icon logo__icon--mobile" xlink:href="img/stack.svg#icons_logo-mobile"/>

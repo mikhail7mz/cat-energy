@@ -1,0 +1,24 @@
+.button {
+  display: block;
+  padding: 10px;
+  bottom: 0;
+  background-color: var(--color-accent);
+  font: 16px/20px var(--font-secondary);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-light);
+
+  &:focus,
+  &:hover {
+    outline: none;
+    background-color: #5eaa2f;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    color: rgba(255,255,255, 0.3);
+  }
+}

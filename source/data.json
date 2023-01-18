@@ -41,6 +41,21 @@
         }
       ]
     },
+    "promo-background": {
+      "ext": "jpg",
+      "sizes": [
+        {
+          "viewport": "desktop",
+          "width": 1043,
+          "height": 696
+        },
+        {
+          "viewport": "mobile",
+          "width": 320,
+          "height": 302
+        }
+      ]
+    },
     "example-before": {
       "ext": "png",
       "sizes": [

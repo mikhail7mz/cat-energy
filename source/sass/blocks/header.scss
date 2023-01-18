@@ -1,19 +1,27 @@
 .header {
   position: relative;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr min-content;
   padding-top: 10px;
   padding-bottom: 17px;
   row-gap: 17px;
 
   @media #{$not-mobile} {
+    grid-template-columns: 200px auto;
+    column-gap: 30px;
     padding-top: 1px;
   }
 
   @media #{$desktop-only} {
+    grid-template-columns: repeat(2, 1fr);
     padding-top: 53px;
+  }
+}
+
+.header__menu {
+  @media #{$not-mobile} {
+    justify-self: end;
   }
 }
 
@@ -58,8 +66,10 @@
     z-index: auto;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     column-gap: 36px;
     padding-top: 10px;
+    background-color: transparent;
   }
 }
 
@@ -115,8 +125,39 @@
   }
 
   .header__menu-item--current & {
-    border-bottom-color: #68b738;
+    border-bottom-color: var(--color-accent);
   }
+}
+
+.header--theme-green {
+  @media #{$desktop-only} {
+    $preimage: linear-gradient(rgb(104 183 56 / 0.85),rgb(104 183 56 / 0.85));
+    $postimage: linear-gradient(to right, #4d4d4d ,#3e3b42);
+
+    gap: 120px;
+    box-sizing: content-box;
+    max-width: 1220px;
+    margin: 0;
+    padding-left: calc((100% - 1280px) / 2 + 30px);
+    padding-right: calc((100% - 1280px) / 2 + 30px);
+    @include bg-image("promo-background", $preimage, $postimage);
+    background-repeat: no-repeat;
+    background-size: 50% 100%, 1043px 696px, 50% 100%;
+    background-position: top right, bottom -567px left 50vw, top right;
+  }
+
+  .header__menu-item--current .header__menu-link-text {
+    @media #{$desktop-only} {
+      border-bottom-color: var(--color-light);
+    }
+  }
+
+  .header__menu-link {
+    @media #{$desktop-only} {
+      color: var(--color-light);
+    }
+  }
+
 }
 
 .header--no-js {

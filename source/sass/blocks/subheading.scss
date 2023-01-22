@@ -1,0 +1,10 @@
+.subheading {
+  margin-top: 0;
+  font: 24px/26px var(--font-secondary);
+  color: var(--color-dark);
+
+  @media #{$not-mobile} {
+    font-size: 36px;
+    line-height: 36px;
+  }
+}

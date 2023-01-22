@@ -1,0 +1,95 @@
+.footer {
+  background-color: var(--background-secondary);
+}
+
+.footer__content {
+  display: grid;
+  gap: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @media #{$not-mobile} {
+    padding-top: 56px;
+    padding-bottom: 55px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media #{$desktop-only} {
+    padding-top: 66px;
+    padding-bottom: 66px;
+  }
+}
+
+.footer__logo {
+  justify-self: center;
+  width: 128px;
+  height: 24px;
+
+  @media #{$not-mobile} {
+    justify-self: auto;
+    width: 145px;
+    height: 30px;
+    margin-top: 3px;
+  }
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media #{mobile-only} {
+    padding: 19px 0;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+  }
+}
+
+.footer__copyrights {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 26px;
+  align-items: center;
+  font-size: 16px;
+  line-height: 19px;
+  color: #666666;
+  text-decoration: none;
+
+  @media #{$not-mobile} {
+    justify-self: end;
+    justify-content: start;
+  }
+
+  &::after {
+    flex-shrink: 0;
+    width: 27px;
+    height: 34px;
+    background-color: #666666;
+    mask: url("../img/stack.svg#icons_htmlacademy") center center/contain no-repeat;
+    content: "";
+  }
+
+  &:focus,
+  &:hover {
+    outline: none;
+    cursor: pointer;
+
+    &::after {
+      background-color: var(--color-accent);
+    }
+  }
+
+  &:active {
+    opacity: 0.3;
+
+    &::after {
+      background-color: var(--color-accent);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+  }
+}

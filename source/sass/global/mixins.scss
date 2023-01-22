@@ -1,35 +1,37 @@
 @mixin bg-image($name, $preimage: "", $postimage: "") {
-	@each $viewport in getviewports($name) {
-		$media-query: null;
+  @each $viewport in getviewports($name) {
+    $media-query: null;
 
-		@if $viewport == mobile {
-			$media-query: all;
-		}
+    @if $viewport == mobile {
+      $media-query: all;
+    }
 
-		@if $viewport == tablet {
-			$media-query: $not-mobile;
-		}
+    @if $viewport == tablet {
+      $media-query: $not-mobile;
+    }
 
-		@if $viewport == desktop {
-			$media-query: $desktop-only;
-		}
+    @if $viewport == desktop {
+      $media-query: $desktop-only;
+    }
 
-		$dppx: 1;
+    $dppx: 1;
 
-		@while $dppx <= getmaxdppx() {
+    @while $dppx <= getmaxdppx() {
       @if $dppx == 1 {
-		    @media #{$media-query} {
+        @media #{$media-query} {
           @include bg-image-choose-format($name, $viewport, $dppx, $preimage, $postimage);
         }
-      } @else {
-		    @media #{$media-query} and (min-resolution: #{$dppx}dppx) {
+      }
+
+      @else {
+        @media #{$media-query} and (min-resolution: #{$dppx}dppx) {
           @include bg-image-choose-format($name, $viewport, $dppx, $preimage, $postimage);
         }
       }
 
       $dppx: $dppx + 1;
     }
-	}
+  }
 }
 
 
@@ -40,8 +42,13 @@
     $className: if(($format == webp) or ($format == avif), ".#{$format}", "");
     $url: url("../img/#{$name}--#{$viewport}@#{$dppx}x.#{$format}");
 
-    @if $preimage != "" { $url: $preimage, $url }
-    @if $postimage != "" { $url: $url, $postimage }
+    @if $preimage != "" {
+      $url: $preimage, $url;
+    }
+
+    @if $postimage != "" {
+      $url: $url, $postimage;
+    }
 
     #{$className} & {
       background-image: $url;

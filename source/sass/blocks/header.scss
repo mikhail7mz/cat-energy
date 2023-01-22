@@ -131,8 +131,8 @@
 
 .header--theme-green {
   @media #{$desktop-only} {
-    $preimage: linear-gradient(rgb(104 183 56 / 0.85),rgb(104 183 56 / 0.85));
-    $postimage: linear-gradient(to right, #4d4d4d ,#3e3b42);
+    $preimage: linear-gradient(rgb(104 183 56 / 0.85), rgb(104 183 56 / 0.85));
+    $postimage: linear-gradient(to right, #4d4d4d, #3e3b42);
 
     gap: 120px;
     box-sizing: content-box;
@@ -140,10 +140,11 @@
     margin: 0;
     padding-left: calc((100% - 1280px) / 2 + 30px);
     padding-right: calc((100% - 1280px) / 2 + 30px);
-    @include bg-image("promo-background", $preimage, $postimage);
     background-repeat: no-repeat;
     background-size: 50% 100%, 1043px 696px, 50% 100%;
-    background-position: top right, bottom -567px left 50vw, top right;
+    background-position: top right, bottom -567px left calc(50vw - 8px), top right;
+
+    @include bg-image("promo-background", $preimage, $postimage);
   }
 
   .header__menu-item--current .header__menu-link-text {
@@ -157,7 +158,6 @@
       color: var(--color-light);
     }
   }
-
 }
 
 .header--no-js {

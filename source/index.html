@@ -12,54 +12,60 @@
       {% include "./templates/picture.twig" with {name: "promo", class: "promo__image", alt: "Упаковка функционального питания."} %}
       <a class="promo__link button" href="form.html">подобрать программу</a>
     </section>
-    <section class="categories">
+    <section class="categories page__container">
       <h2 class="visually-hidden">Программы питания.</h2>
       <ul class="categories__list">
-        <li class="categories__item">
-          <h3 class="categories__title">похудение</h3>
+        <li class="categories__item categories__item--slim">
+          <h3 class="categories__title subheading">похудение</h3>
           <p class="categories__text">Ваш кот весит больше собаки и почти утратил способность лазить по деревьям? Пора на диету! Cat Energy Slim поможет вашему питомцу сбросить лишний вес.</p>
           <a class="categories__link" href="#">каталог slim</a>
         </li>
-        <li class="categories__item">
-          <h3 class="categories__title">Набор массы</h3>
+        <li class="categories__item categories__item--pro">
+          <h3 class="categories__title subheading">Набор массы</h3>
           <p class="categories__text">Заработать авторитет среди дворовых котов и даже собак? Серия Cat Energy Pro поможет вашему коту нарастить необходимые мышцы!</p>
           <a class="categories__link" href="#">каталог pro</a>
         </li>
       </ul>
     </section>
-    <section class="key-points">
-      <h2 class="key-points__heading">Как это работает</h2>
-      <ol class="key-points">
-        <li class="key-points">Функциональное питание содержит только полезные питательные вещества.</li>
-        <li class="key-points">Выпускается в виде порошка, который нужно лишь залить кипятком и готово.</li>
-        <li class="key-points">Замените один-два приема обычной еды на наше функциональное питание.</li>
-        <li class="key-points">Уже через месяц наслаждайтесь изменениями к лучшему вашего питомца!</li>
+    <section class="key-points page__container">
+      <h2 class="key-points__heading heading">Как это работает</h2>
+      <ol class="key-points__list">
+        <li class="key-points__item key-points__item--leaf">Функциональное питание содержит только полезные питательные вещества.</li>
+        <li class="key-points__item key-points__item--water">Выпускается в виде порошка, который нужно лишь залить кипятком и готово.</li>
+        <li class="key-points__item key-points__item--eat">Замените один-два приема обычной еды на наше функциональное питание.</li>
+        <li class="key-points__item key-points__item--time">Уже через месяц наслаждайтесь изменениями к лучшему вашего питомца!</li>
       </ol>
     </section>
     <section class="example">
-      <h2 class="example__heading">Живой пример</h2>
-      <p class="example__text">Борис сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat Energy Slim. Отличный результат без изнуряющих тренировок! При этом он не менял своих привычек и по-прежнему спит по 16 часов в день.</p>
-      <dl class="example__results">
-        <div class="example__results-group">
-          <dt class="example__results-name">снижение веса</dt>
-          <dd class="example__results-value">5 кг</dd>
+      <div class="example__content page__container">
+        <h2 class="example__heading heading">Живой пример</h2>
+        <p class="example__text">Борис сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat Energy Slim. Отличный результат без изнуряющих тренировок! При этом он не менял своих привычек и по-прежнему спит по 16 часов в день.</p>
+        <dl class="example__results">
+          <div class="example__results-group">
+            <dt class="example__results-name">снижение веса</dt>
+            <dd class="example__results-value">5 кг</dd>
+          </div>
+          <div class="example__results-group">
+            <dt class="example__results-name">затрачено времени</dt>
+            <dd class="example__results-value">60 дней</dd>
+          </div>
+          <div class="example__results-group example__results-group--wide">
+            <dt class="example__results-name">Затраты на питание:</dt>
+            <dd class="example__results-value">15 000 РУБ.</dd>
+          </div>
+        </dl>
+        <div class="example__pictures">
+          {% include "./templates/picture.twig" with {name: "example-before", class: "example__image example__image--before", alt: "результат до."} %}
+          {% include "./templates/picture.twig" with {name: "example-after", class: "example__image example__image--after", alt: "результат после."} %}
+          <button class="example__images-toggle" type="button">
+            <span class="visually-hidden">Переключатель до / после.</span>
+            <svg class="example__images-toggle-icon" width="24" height="18" fill="currentcolor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <use xlink:href="img/stack.svg#icons_toggle"/>
+            </svg>
+          </button>
         </div>
-        <div class="example__results-group">
-          <dt class="example__results-name">затрачено времени</dt>
-          <dd class="example__results-value">60 дней</dd>
-        </div>
-        <div class="example__results-group example__results-group--inline">
-          <dt class="example__results-name">Затраты на питание:</dt>
-          <dd class="example__results-value">15 000 РУБ.</dd>
-        </div>
-      </dl>
-      <div class="example__pictures">
-        {% include "./templates/picture.twig" with {name: "example-before", class: "example__image example__image--before", alt: "результат до."} %}
-        {% include "./templates/picture.twig" with {name: "example-after", class: "example__image example__image--after", alt: "результат после."} %}
-        <button class="example__images-toggle" type="button">
-          <span class="visually-hidden">Переключатель до / после.</span>
-        </button>
       </div>
     </section>
+    {% include "./templates/location.twig" %}
   </main>
 {% endblock %}

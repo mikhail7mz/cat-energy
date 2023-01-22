@@ -103,7 +103,7 @@ const createWebp = (done) => {
 }
 
 const createAvif = (done) => {
-	if (!data.isDevelopment) {
+  if (!data.isDevelopment) {
     return gulp.src('source/img/**/*.{jpg,png}')
       .pipe(squoosh({ avif: {} }))
       .pipe(gulp.dest('build/img'));
@@ -185,7 +185,7 @@ const serverReload = (done) => {
 
 const watcher = () => {
   gulp.watch('source/sass/**/*.scss', gulp.series(processStyles));
-  gulp.watch('source/js/**/*.js', gulp.series(processScripts));
+  gulp.watch('source/js/**/*.js', gulp.series(processScripts, serverReload));
   gulp.watch('source/img/**/*.svg', gulp.series(createSvgStack, serverReload));
   gulp.watch(['source/**/*.{html,twig}', 'source/data.json'], gulp.series(processMarkup, serverReload));
 }

@@ -1,0 +1,125 @@
+.key-points {
+  margin-bottom: 49px;
+
+  @media #{$not-mobile} {
+    margin-bottom: 18px;
+    padding-bottom: 46px;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  @media #{$desktop-only} {
+    margin-bottom: 69px;
+    padding-bottom: 0;
+    border: none;
+  }
+}
+
+.key-points__heading {
+  margin-bottom: 40px;
+
+  @media #{$not-mobile} {
+    margin-bottom: 32px;
+  }
+}
+
+.key-points__list {
+  counter-reset: order;
+  display: grid;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @media #{$not-mobile} {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 37px 132px;
+    padding-right: 70px;
+  }
+
+  @media #{$desktop-only} {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 37px 80px;
+    padding-right: 0;
+  }
+}
+
+.key-points__item {
+  counter-increment: order;
+  position: relative;
+  z-index: 1;
+  min-height: 60px;
+  padding-top: 3px;
+  padding-left: 80px;
+  font-size: 14px;
+  line-height: 18px;
+
+  @media #{$not-mobile} {
+    min-height: 280px;
+    padding-top: 40px;
+    padding-left: 0;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &::before {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-accent);
+    background-image: linear-gradient(var(--color-accent), var(--color-accent));
+    background-position: center center;
+    background-repeat: no-repeat;
+    content: "";
+
+    @media #{$mobile-only} {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @media #{$not-mobile} {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 31px;
+    }
+  }
+
+  &::after {
+    @media #{$not-mobile} {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -1;
+      min-width: 147px;
+      height: 280px;
+      font: 280px/280px var(--font-secondary);
+      color: var(--background-secondary);
+      text-align: center;
+      content: counter(order);
+    }
+
+    @media #{$desktop-only} {
+      min-width: 134px;
+    }
+  }
+}
+
+.key-points__item--leaf::before {
+  background-image: url("../img/stack.svg#icons_leaf");
+  background-size: 25px 28px;
+}
+
+.key-points__item--water::before {
+  background-image: url("../img/stack.svg#icons_water");
+  background-size: 26px 29px;
+}
+
+.key-points__item--eat::before {
+  background-image: url("../img/stack.svg#icons_eat");
+  background-size: 25px 30px;
+}
+
+.key-points__item--time::before {
+  background-image: url("../img/stack.svg#icons_time");
+  background-size: 26px 31px;
+}

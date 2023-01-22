@@ -1,0 +1,31 @@
+.breaker::after {
+  content: "\A";
+}
+
+.breaker--all::after {
+  white-space: pre;
+}
+
+.breaker--mobile::after {
+  @media #{$mobile-only} {
+    white-space: pre;
+  }
+}
+
+.breaker--not-mobile::after {
+  @media #{$not-mobile} {
+    white-space: pre;
+  }
+}
+
+.breaker--tablet::after {
+  @media #{$tablet-only} {
+    white-space: pre;
+  }
+}
+
+.breaker--desktop::after {
+  @media #{$desktop-only} {
+    white-space: pre;
+  }
+}

@@ -1,34 +1,34 @@
 @font-face {
-	font-family: "Oswald";
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src:
-		url("../../fonts/oswald-400.woff2") format("woff2"),
-		url("../../fonts/oswald-400.woff") format("woff");
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("../../fonts/oswald-400.woff2") format("woff2"),
+    url("../../fonts/oswald-400.woff") format("woff");
 }
 
 @font-face {
-	font-family: "Oswald";
-	font-style: normal;
-	font-weight: 500;
-	font-display: swap;
-	src:
-		url("../../fonts/oswald-500.woff2") format("woff2"),
-		url("../../fonts/oswald-500.woff") format("woff");
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url("../../fonts/oswald-500.woff2") format("woff2"),
+    url("../../fonts/oswald-500.woff") format("woff");
 }
 
 @font-face {
-	font-family: "Lato";
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src:
-		url("../../fonts/lato-400.woff2") format("woff2"),
-		url("../../fonts/lato-400.woff") format("woff");
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("../../fonts/lato-400.woff2") format("woff2"),
+    url("../../fonts/lato-400.woff") format("woff");
 }
 
 :root {
-	--font-primary: "Lato", arial, tahoma, sans-serif;
-	--font-secondary: "Oswald", arial, tahoma, sans-serif;
+  --font-primary: "Lato", arial, tahoma, sans-serif;
+  --font-secondary: "Oswald", arial, tahoma, sans-serif;
 }

@@ -3,51 +3,57 @@
 {% extends "templates/_layout.twig" %}
 
 {% block main %}
-  <main class="page__main">
-    <section class="products">
-      <h1 class="products__heading">Каталог продукции</h1>
+  <main class="page__main page__main--has-border">
+    <section class="products page__container">
+      <h1 class="products__heading heading">Каталог продукции</h1>
       <ul class="products__list">
         {% for product in products %}
           <li class="products__item">
-            <h2 class="products__title">
-              <a class="products__link" href="#">{{ product.title ~ " " ~ product.weght ~ "г"}}</a>
-            </h2>
-            <a class="products__link" href="#">
+            <div class="products__description">
+              <h2 class="products__title">
+                <a class="products__link products__link--title" href="#">{{ product.title ~ " " ~ product.weight ~ " г"}}</a>
+              </h2>
+              <dl class="products__parameters">
+                <dt class="products__parameters-name">Масса</dt>
+                <dd class="products__parameters-value">{{ product.weight ~ " г" }}</dd>
+                <dt class="products__parameters-name">Вкус</dt>
+                <dd class="products__parameters-value">{{ product.flawor }}</dd>
+                <dt class="products__parameters-name">Цена</dt>
+                <dd class="products__parameters-value">{{ product.price ~ " ₽"}}</dd>
+              </dl>
+            </div>
+            <a class="products__link products__link--image" href="#">
               {% set alt = "Упаковка " ~ product.title ~ " со вкусом " ~ product.flawor ~ " весом " ~ product.weight ~ "г." %}
               {% include "./templates/picture.twig" with {name: product.image, class: "products__image", alt: alt} %}
             </a>
-            <dl class="products__parameters">
-              <dt class="products__parameters-name">Масса</dt>
-              <dd class="products__parameters-value">{{ product.weight }}</dd>
-              <dt class="products__parameters-name">Вкус</dt>
-              <dd class="products__parameters-value">{{ product.flawor }}</dd>
-              <dt class="products__parameters-name">Цена</dt>
-              <dd class="products__parameters-value">{{ product.price ~ " ₽"}}</dd>
-            </dl>
-            <a class="products__button" href="#">Заказать</a>
+            <a class="products__button button" href="#">Заказать</a>
           </li>
         {% endfor %}
+
+        <li class="products__item products__item--show-more">
+          <h2 class="products__title">Показать еще 100500 товаров</h2>
+          <p class="products__text">На самом деле вкусов гораздо больше!</p>
+          <a class="products__button button button--gray" href="#">показать все</a>
+        </li>
       </ul>
     </section>
-    <section class="additional-products">
-      <h2 class="additional-products__heading">Дополнительные товары</h2>
+    <section class="additional-products page__container">
+      <h2 class="additional-products__heading subheading">
+        <span class="subheading__lined-content">Дополнительные товары</span>
+      </h2>
       <ul class="additional-products__list">
         {% for product in additionalProducts %}
           <li class="additional-products__item">
             <h3 class="additional-products__title">{{ product.name }}</h3>
-            <p class="additional-products__description">{{ product.description }}</p>
-            <p class="additional-products__price">{{ product.price }}</p>
-            <a class="additional-products__button" href="#">Заказать</a>
+            <p class="additional-products__description">
+              <span class="additional-products__size">{{ product.description }}</span>
+              <span class="additional-products__price">{{ product.price ~ " ₽"}}</span>
+            </p>
+            <a class="additional-products__button button" href="#">Заказать</a>
         </li>
         {% endfor %}
       </ul>
-    </section>
-    <section class="contacts">
-      <header class="contacts__header">
-        <p class="contacts__caption">приглашаем к сотрудничеству дилеров!</p>
-        <p class="contacts__address">ул. Большая Конюшенная, д. 19/8 Санкт-Петербург</p>
-      </header>
-      <h2 class="visually-hidden">Контакты.</h2>
+      <div class="additional-products__info">Закажите все и&nbsp;получите чехол для кота в подарок!</div>
     </section>
     {% include "./templates/location.twig" %}
   </main>

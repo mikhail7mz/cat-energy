@@ -22,3 +22,17 @@
     color: rgba(255, 255, 255, 0.3);
   }
 }
+
+.button--gray {
+  color: var(--color-primary);
+  background-color: var(--background-secondary);
+
+  &:focus,
+  &:hover {
+    background-color: #ebebeb;
+  }
+
+  &:active {
+    color: fade-out(#444444, 0.7);
+  }
+}

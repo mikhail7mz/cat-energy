@@ -8,3 +8,46 @@
     line-height: 36px;
   }
 }
+
+.subheading__lined-content {
+  position: relative;
+  display: inline;
+
+  @media #{$not-mobile} {
+    padding-left: 36px;
+  }
+
+  @media #{$desktop-only} {
+    padding-left: 0;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    width: 100vw;
+    top: 21px;
+    height: 2px;
+    background-color: var(--color-accent);
+    content: "";
+
+    @media #{$not-mobile} {
+      top: 31px;
+    }
+  }
+
+  &::before {
+    right: calc(100% + 20px);
+
+    @media #{$not-mobile} {
+      right: 100%;
+    }
+  }
+
+  &::after {
+    left: calc(100% + 20px);
+
+    @media #{$not-mobile} {
+      left: calc(100% + 36px);
+    }
+  }
+}

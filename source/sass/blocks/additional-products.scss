@@ -1,0 +1,142 @@
+.additional-products {
+  margin-bottom: 37px;
+  padding-top: 25px;
+
+  @media #{$not-mobile} {
+    margin-bottom: 76px;
+  }
+}
+
+.additional-products__heading {
+  margin-bottom: 36px;
+
+  @media #{$mobile-only} {
+    line-height: 24px;
+  }
+
+  @media #{$not-mobile} {
+    margin-bottom: 80px;
+  }
+}
+
+.additional-products__list {
+  margin: 0;
+  margin-bottom: 33px;
+  padding: 0;
+  border-top: 1px solid #cdcdcd;
+  list-style-type: none;
+
+  @media #{$not-mobile} {
+    margin-bottom: 68px;
+  }
+}
+
+.additional-products__item {
+  display: block;
+  padding: 13px 0 19px;
+  border-bottom: 1px solid #cdcdcd;
+
+  @media #{$not-mobile} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 24px;
+    padding: 26px 38px 28px;
+  }
+}
+
+.additional-products__title {
+  margin: 0;
+  margin-bottom: 12px;
+  font: 400 16px/16px var(--font-secondary);
+  color: #222222;
+  text-transform: uppercase;
+
+  @media #{$not-mobile} {
+    max-width: 48%;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 0;
+  }
+}
+
+.additional-products__description {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 14px;
+
+  @media #{$not-mobile} {
+    max-width: 48%;
+    flex-shrink: 0;
+    column-gap: 41px;
+    margin-bottom: 0;
+    padding-right: 3px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.additional-products__size {
+  @media #{$not-mobile} {
+    max-width: 70%;
+  }
+}
+
+.additional-products__price {
+  @media #{$not-mobile} {
+    min-width: 50px;
+    max-width: 25%;
+    text-align: right;
+  }
+}
+
+.additional-products__button {
+  width: 100%;
+  text-align: center;
+}
+
+.additional-products__info {
+  $preimage:
+    url("../img/stack.svg#icons_gift"),
+    linear-gradient(rgb(104 183 56 / 0.85), rgb(104 183 56 / 0.85));
+  $postimage: linear-gradient(to right, #4d4d4d, #3e3b42);
+
+  padding: 186px 60px 43px 57px;
+  background-color: var(--color-accent);
+  background-repeat: no-repeat;
+  background-size:
+    78px 80px,
+    cover,
+    contain,
+    cover;
+  background-position:
+    top 59px center,
+    center center,
+    center center,
+    center center;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--color-light);
+  text-align: center;
+
+  @include bg-image("gift-cat", $preimage, $postimage);
+
+  @media #{$not-mobile} {
+    padding: 71px 124px 69px 422px;
+    background-size:
+      78px 80px,
+      cover,
+      cover,
+      cover;
+    background-position:
+      top 58px left 79px,
+      center center,
+      top -304px center,
+      center center;
+    text-align: left;
+  }
+}

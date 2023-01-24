@@ -193,7 +193,7 @@ const watcher = () => {
 // Npm run build
 
 export const build = (done) => {
-  isDevelopment = false;
+  data.isDevelopment = false;
   gulp.series(
     removeBuild,
     compileProject
